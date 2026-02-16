@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+.venv/
+dist/
+build/
+.aotc_build/
+*.egg-info/
+*.so
+*.dll
+*.dylib
+*.o
+*.s

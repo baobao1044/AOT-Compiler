@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aotc"
+version = "0.2.0"
+description = "AOT Compiler prototype for Python"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "AOTC Contributors" }
+]
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "pre-commit>=3.8",
+]
+llvm = [
+  "llvmlite>=0.43",
+]
+release = [
+  "build>=1.2",
+  "twine>=5.1",
+  "cibuildwheel>=2.20",
+]
+
+[project.scripts]
+aotc = "aotc.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["aotc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+
+[tool.cibuildwheel]
+build = "cp39-* cp310-* cp311-* cp312-*"
+skip = "pp* *-musllinux*"
+test-command = "pytest -q"
+test-extras = ["dev"]
