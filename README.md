@@ -106,4 +106,4 @@ For more details, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) and [docs/DAT
 ---
 
 ## 📜 License
-AOTC is released under the MIT License. See `LICENSE` for details.
+AOTC is released under the GNU GENERAL PUBLIC LICENSE. See `LICENSE` for details.
